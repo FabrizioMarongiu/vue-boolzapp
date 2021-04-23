@@ -19,6 +19,16 @@ body{
     align-items: center;
 }
 
+/* UTILITIES */
+.round-pic{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:0 5px
+}
+
+/* LAYOUT */
 .container{
     width: 80%;
     min-width: 900px;
@@ -28,10 +38,46 @@ body{
     
 }
 
+/* LEFT SIDE */
+
 .left{
     flex-basis: 35%;
     background-color: violet;
+    display: flex;
+    flex-direction: column;
 }
+
+/* HEADER */
+
+.header-left,
+.header-right{
+    background-color: #ededed;
+    height: 60px;
+    border-right: 1px solid #dfdfdf;
+    padding: 7px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.actions i{
+    margin: 0 5px;
+    color: #bababa;
+    font-size: 20px;
+}
+
+.actions i:hover{
+    cursor: pointer;
+    color: #00bfa5;
+}
+
+/* RIGHT SIDE */
 
 .right{
     flex-basis: 65%;
@@ -41,7 +87,17 @@ body{
 }
 
 .header-right{
-    background-color: aqua;
+    border: 0;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.access{
+    font-size: 12px;
+    color: #8a8f92;
+    font-weight: normal;
 }
 
 .main{
