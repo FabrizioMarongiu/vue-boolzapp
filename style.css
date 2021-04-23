@@ -196,6 +196,48 @@ body{
     background-image: url(./img/mine.jpg);
 }
 
+.ricevuto,
+.inviato{
+    width:  100%;
+    padding: 15px 30px;
+}
+
+.ricevuto{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inviato{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inviato .messaggio{
+    background-color: #ddfabf;
+}
+
+.messaggio{
+    width: 300px;
+    min-height: 50px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    /* padding: 10px; */
+}
+
+.testo{
+    padding:10px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.info-mess{
+    text-align: right;
+    font-size: 10px;
+    color: #aaaaaa;
+    padding: 0 5px 3px;
+}
+
 /* MAIN FOOTER */
 
 .footer{
