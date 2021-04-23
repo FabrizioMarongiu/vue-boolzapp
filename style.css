@@ -17,7 +17,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* UTILITIES */
@@ -95,7 +95,7 @@ body{
 }
 
 .actions i{
-    margin: 0 5px;
+    margin: 0 8px;
     color: #bababa;
     font-size: 16px;
 }
