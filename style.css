@@ -91,12 +91,13 @@ body{
 .profile{
     display: flex;
     align-items: center;
+    font-weight: bold;
 }
 
 .actions i{
     margin: 0 5px;
     color: #bababa;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 /* SCELTA RICEZIONE NOTIFICHE */
@@ -155,6 +156,25 @@ body{
 
 /* SEZIONE RUBRICA */
 
+.rubrica-contatti{
+    overflow-y: auto;
+}
+
+.rubrica{
+    list-style: none;
+    padding: 0 15px;
+}
+
+.contatto{
+    height: 70px;
+    border-bottom: 1px solid #f6f6f6;
+    display: flex;
+    align-items: center;
+}
+
+.contatto:last-child{
+    border: none;
+}
 /* RIGHT SIDE */
 
 .right{
@@ -181,10 +201,14 @@ body{
 .footer{
     background-color: #f4f0ed;
     height: 60px;
-    padding: 7px 15px 7px;
+    padding: 7px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.footer-icons{
+    width: 85px;
 }
 
 .footer i{
