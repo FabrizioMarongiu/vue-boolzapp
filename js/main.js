@@ -93,7 +93,7 @@ const app = new Vue ({
             },
         ],
         
-        activeIndex: null,
+        activeIndex: 0,
     },
     methods: {
         // FUNZIONE PER PERMETTERE DI SELEZIONARE AL CLICK UN CONTATTO

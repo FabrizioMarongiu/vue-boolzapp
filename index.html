@@ -82,9 +82,9 @@
             <header class="header-right">
                  <!-- IMMAGINE PROFILO DELLA PERSONA CON CUI SI STA CHATTANDO -->
                  <div class="profile ">
-                    <img class="round-pic" src="./img/avatar_io.jpg" alt="Profile">
+                    <img class="round-pic" :src=" './img/avatar' + contatti[activeIndex].avatar +'.jpg' " alt="Profile">
                     <div class="flex-column">
-                        <span>{{  }}</span>
+                        <span>{{ contatti[activeIndex].name }}</span>
                         <span class="avvisi">Ultimo accesso oggi alle 10.35</span>
                     </div>
                     
@@ -100,32 +100,38 @@
             <!-- SEZIONE DEDICATA ALLA CHAT -->
 
             <section class="main">
-                <div class="inviato">
-                    <div class="messaggio">
-                        <div class="testo">
+                <div class="main-container" 
+                v-for="(element, index) in contatti[activeIndex].messages">
+                    <div class="inviato">
+                        <div class="messaggio">
+                            <div class="testo"  v-if="element.status == 'sent'">
                             <span>
-                            Messaggio inviato
+                            {{element.message}}
+                            </span>
+                            </div>
+                            <div class="info-mess" v-show="element.status == 'sent'">
+                            <span > {{ element.date}}
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ricevuto">
+                    <div class="messaggio">
+                        <div class="testo"
+                        v-if="element.status == 'received'">
+                            <span>
+                            {{element.message}}
                             </span>
                         </div>
-                        <div class="info-mess">
-                            <span>10/01/2021 15:50:00
+                        <div class="info-mess"
+                        v-if="element.status == 'received'">
+                            <span>{{element.date}}
                             </span>
                         </div>
                     </div>
-                </div>
-                <div class="ricevuto">
-                    <div class="messaggio">
-                        <div class="testo">
-                            <span>
-                            Messaggio inviato
-                            </span>
-                        </div>
-                        <div class="info-mess">
-                            <span>10/01/2021 15:50:00
-                            </span>
-                        </div>
                     </div>
                 </div>
+                
             </section>
 
             <!-- MAIN FOOTER -->
