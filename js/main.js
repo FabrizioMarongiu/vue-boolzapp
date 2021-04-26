@@ -1,14 +1,17 @@
-const app = new Vue (
-    {
+const app = new Vue ({
     el: '#app',
 
     data:{
-
-        fabrizio: [
+        // USER
+        user:{
+            name: 'Fabrizio Marongiu',
+            avatar: '_io',
+        },
+        contatti: [
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -30,7 +33,7 @@ const app = new Vue (
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -52,7 +55,7 @@ const app = new Vue (
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -74,7 +77,7 @@ const app = new Vue (
             {
                 name: 'Luisa',
                 avatar: '_4',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -88,8 +91,18 @@ const app = new Vue (
                     }
                 ],
             },
-        ]
+        ],
         
-
+        activeIndex: null,
+    },
+    methods: {
+        // FUNZIONE PER PERMETTERE DI SELEZIONARE AL CLICK UN CONTATTO
+        
+        visualChat(index){
+            console.log(index);
+            
+            this.activeIndex = index;
+            console.log(this.activeIndex);
+        }
     }
 });

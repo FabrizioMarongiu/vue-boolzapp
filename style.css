@@ -36,11 +36,20 @@ body{
     font-weight: normal;
 }
 
-/* HOVER */
+/* HOVER / FOCUS*/
 .left i:hover,
 .right i:hover{
     cursor: pointer;
     color: #00bfa5;
+}
+
+input:focus{
+    outline: none;
+}
+
+.contatto:hover{
+    cursor: pointer;
+    background-color:rgba(0,0,0,0.1);
 }
 
 /* FLEX */
@@ -54,6 +63,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+
 
 /* LAYOUT */
 .container{
@@ -162,7 +173,7 @@ body{
 
 .rubrica{
     list-style: none;
-    padding: 0 15px;
+
 }
 
 .contatto{
@@ -170,11 +181,20 @@ body{
     border-bottom: 1px solid #f6f6f6;
     display: flex;
     align-items: center;
+    padding: 0 15px;
 }
 
 .contatto:last-child{
     border: none;
 }
+
+.active{
+    /* height: 100%;
+    width: 100%; */
+    background-color:rgba(0,0,0,0.1);
+    
+}
+
 /* RIGHT SIDE */
 
 .right{

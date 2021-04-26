@@ -27,8 +27,8 @@
             <header class="header-left">
                 <!-- IMMAGINE PROFILO -->
                 <div class="profile ">
-                    <img class="round-pic" src="./img/avatar_8.jpg" alt="Profile">
-                    <span>Nome Profilo</span>
+                    <img class="round-pic" :src=" './img/avatar' + user.avatar + '.jpg'" alt="Profile">
+                    <span>{{user.name}}</span>
                 </div>
                 <!-- ICONE PER LE AZIONI -->
                 <div class="actions">
@@ -59,12 +59,18 @@
             <!-- SEZIONE RUBRICA (UL) -->
             <section class="rubrica-contatti">
                 <ul class="rubrica">
-                    <li class="contatto"
-                    v-for="(element, index) in fabrizio">
-                        <div class="profile">
-                            <img class="round-pic" :src=" './img/avatar' + element.avatar + '.jpg' " alt="Profile">
+                    <li 
+                    v-for="(element, index) in contatti"
+                    class="contatto"
+                     @click="visualChat(index)"
+                    :class="{active : index == activeIndex}"
+                     >
+                     
+                            <div class="profile">
+                            <img class="round-pic" :src=" './img/avatar' + element.avatar + '.jpg' " :alt="element.name">
                             <span>{{element.name}}</span>
-                        </div>
+                            </div>
+                       
                     </li>
                    
                 </ul>
@@ -78,7 +84,7 @@
                  <div class="profile ">
                     <img class="round-pic" src="./img/avatar_io.jpg" alt="Profile">
                     <div class="flex-column">
-                        <span>Nome Profilo</span>
+                        <span>{{  }}</span>
                         <span class="avvisi">Ultimo accesso oggi alle 10.35</span>
                     </div>
                     
