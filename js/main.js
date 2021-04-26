@@ -94,6 +94,21 @@ const app = new Vue ({
         ],
         
         activeIndex: 0,
+        newMessage: {
+            date: null,
+            message: '',
+            status: 'sent'
+        },
+        risposte: [
+            'Non mi va.',
+            'Va bene!',
+            'Non scrivermi più, tra noi è finita',
+            'Ciao',
+            'Ho vohlia di fare un giro',
+            'Quanto tempo!!, come stai?',
+            'Ti va di fare un giro?',
+            'Aperitivi stasera?'
+        ],
     },
     methods: {
         // FUNZIONE PER PERMETTERE DI SELEZIONARE AL CLICK UN CONTATTO
@@ -103,6 +118,23 @@ const app = new Vue ({
             
             this.activeIndex = index;
             console.log(this.activeIndex);
-        }
+        },
+        inviaMessaggio(){
+            console.table(this.contatti[this.activeIndex].name);
+
+            
+            this.contatti[this.activeIndex].messages.push(
+                {
+                    date: this.newMessage.date,
+                    message: this.newMessage.text,
+                    status: this.newMessage.status,
+                }
+            );
+
+
+
+            this.newMessage.text = '';
+        },
+       
     }
 });
