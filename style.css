@@ -29,11 +29,16 @@ body{
     margin:0 5px;
 }
 
-/* FONT SIZE */
+/* FONT SIZE - TESTO */
 .avvisi{
     font-size: 12px;
     color: #8a8f92;
     font-weight: normal;
+}
+
+.break-w{
+    width: 280px;
+    word-wrap: break-word;
 }
 
 /* HOVER / FOCUS*/
@@ -215,35 +220,36 @@ input:focus{
 
 .main-container{
     width: 100%;
+    display: flex;
 }
 
-.ricevuto,
-.inviato{
+.received,
+.sent{
     width:  100%;
     padding: 0 30px;
     margin: 1px 0;
 }
 
-.ricevuto{
+.received{
     display: flex;
     justify-content: flex-start;
 }
 
-.inviato{
+.sent{
     display: flex;
     justify-content: flex-end;
 }
 
-.inviato .messaggio{
+.sent .messaggio{
     background-color: #ddfabf;
 }
 
 .messaggio{
     width: 300px;
-    /* min-height: 50px; */
     border-radius: 10px;
     background-color: #ffffff;
-    /* padding: 10px; */
+    margin-top: 10px;
+   
 }
 
 .testo{
@@ -251,6 +257,7 @@ input:focus{
     display: flex;
     align-items: center;
     font-weight: 600;
+
 }
 
 .info-mess{

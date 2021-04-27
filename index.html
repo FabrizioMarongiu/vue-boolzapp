@@ -105,33 +105,18 @@
             <section class="main">
                 <div class="main-container" 
                 v-for="(element, index) in contatti[activeIndex].messages">
-                    <div class="inviato">
-                        <div class="messaggio">
-                            <div class="testo"  v-if="element.status == 'sent'">
-                            <span>
-                            {{element.message}}
-                            </span>
-                            </div>
-                            <div class="info-mess" v-if="element.status == 'sent'">
-                            <span > {{ element.date}}
-                            </span>
-                            </div>
+                    <div :class="element.status">
+                        <div class="messaggio">                       
+                                <div class="testo">
+                                    <span class="break-w">
+                                    {{element.message}}
+                                    </span>
+                                </div>
+                                <div class="info-mess">
+                                    <span > {{ element.date}}
+                                    </span>
+                                </div>                           
                         </div>
-                    </div>
-                    <div class="ricevuto">
-                    <div class="messaggio">
-                        <div class="testo"
-                        v-if="element.status == 'received'">
-                            <span>
-                            {{element.message}}
-                            </span>
-                        </div>
-                        <div class="info-mess"
-                        v-if="element.status == 'received'">
-                            <span>{{element.date}}
-                            </span>
-                        </div>
-                    </div>
                     </div>
                 </div>
                 

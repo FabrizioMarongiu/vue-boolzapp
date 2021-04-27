@@ -92,14 +92,17 @@ const app = new Vue ({
                 ],
             },
         ],
-        
+        // INDICE DINAMICO
         activeIndex: 0,
+        // OGGETTO DA INSERIRE PER INVIARE UN MESSAGGIO
         newMessage: {
-            date: null,
+            date: '10/05/2014',
             message: '',
             status: 'sent'
         },
+        // STRINGA CHE VIENE UTILIZZATA PER ESEGUIRE LA RICERCA
         ricerca: '',
+        // ARRAY DI RISPOSTE RANDOM
         risposte: [
             'Non mi va.',
             'Va bene!',
@@ -121,8 +124,10 @@ const app = new Vue ({
             this.activeIndex = index;
             console.log(this.activeIndex);
         },
+        // FUNZIONE CHE PERMETTE DI INVIARE UN MESSAGGIO
+
         inviaMessaggio(){
-            console.table(this.contatti[this.activeIndex].name);
+            // console.table(this.contatti[this.activeIndex].name);
 
             
             this.contatti[this.activeIndex].messages.push(
@@ -182,33 +187,28 @@ const app = new Vue ({
 
         //     },3000);
         // },
+
+        // FUNZIONE PER CREARE NUMERI RANDOM
+
         numeroRandom(min, max) {
             
             return Math.floor( Math.random() * (max - min + 1) ) + min;
  
          },
-         search(){
-            //  console.log(this.ricerca);
-            //  const parola = this.contatti.name.includes(ricerca);
-            console.log(this.ricerca);
+        //  FUNZIONE DI RICERCA DI UN UTENTE NELLA RUBRICA
 
+         search(){
+            
+             this.contatti.forEach((element) => {
             let parola = this.ricerca.toLowerCase().trim();
 
-             for (let i =0; i < this.contatti.length; i++){
-
-                // this.ricerca.trim().toLowerCase()
-                // console.log(this.contatti[i].name);
-                if(!this.contatti[i].name.toLowerCase().trim().includes(parola)){
-                    console.log(this.contatti[i].visible);
-                    this.contatti[i].visible = false
+                if(!element.name.toLowerCase().trim().includes(parola)){
+                    console.log(element.visible);
+                    element.visible = false
                 }else{
-                    this.contatti[i].visible = true;
+                    element.visible = true;
                 };
-                
-             }
-
-
-            //  console.table(results);
+             })
          },
     }
 });
