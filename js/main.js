@@ -11,7 +11,7 @@ const app = new Vue ({
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -33,7 +33,7 @@ const app = new Vue ({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -55,7 +55,7 @@ const app = new Vue ({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -77,7 +77,7 @@ const app = new Vue ({
             {
                 name: 'Luisa',
                 avatar: '_4',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -188,15 +188,27 @@ const app = new Vue ({
  
          },
          search(){
-             console.log(this.ricerca);
+            //  console.log(this.ricerca);
             //  const parola = this.contatti.name.includes(ricerca);
+            console.log(this.ricerca);
 
-             const results = this.contatti.filter((element)  => {
-                 
-                return element.name.includes(this.ricerca)
+            let parola = this.ricerca.toLowerCase().trim();
 
-             });
-             console.table(results);
+             for (let i =0; i < this.contatti.length; i++){
+
+                // this.ricerca.trim().toLowerCase()
+                // console.log(this.contatti[i].name);
+                if(!this.contatti[i].name.toLowerCase().trim().includes(parola)){
+                    console.log(this.contatti[i].visible);
+                    this.contatti[i].visible = false
+                }else{
+                    this.contatti[i].visible = true;
+                };
+                
+             }
+
+
+            //  console.table(results);
          },
     }
 });

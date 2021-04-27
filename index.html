@@ -66,6 +66,7 @@
                     class="contatto"
                      @click="visualChat(index)"
                     :class="{active : index == activeIndex}"
+                    v-if="element.visible"
                      >
                      
                             <div class="profile">
