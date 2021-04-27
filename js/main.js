@@ -1,3 +1,7 @@
+// dayjs.extend(day_js_plugin_customParseFormat);
+
+dayjs.locale('it');
+
 const app = new Vue ({
     el: '#app',
 
@@ -104,12 +108,12 @@ const app = new Vue ({
         ricerca: '',
         // ARRAY DI RISPOSTE RANDOM
         risposte: [
-            'Non mi va.',
+            'Non mi va...',
             'Va bene!',
-            'Non scrivermi più, tra noi è finita',
+            'Non scrivermi più, tra noi è finita!',
             'Ciao!',
-            'Ho vohlia di fare un giro',
-            'Quanto tempo!!, come stai?',
+            'Ho voglia di fare un giro',
+            'Quanto tempo!! Come stai?',
             'Ti va di fare un giro?',
             'Aperitivo stasera?'
         ],
@@ -128,23 +132,30 @@ const app = new Vue ({
 
         inviaMessaggio(){
             // console.table(this.contatti[this.activeIndex].name);
+            let orario = dayjs().format('DD/MM/YYYY - HH:mm');
 
-            
             this.contatti[this.activeIndex].messages.push(
                 {
-                    date: this.newMessage.date,
+                    date: orario,
                     message: this.newMessage.text,
                     status: this.newMessage.status,
                 }
             );
             
-            //
-            // this.newMessage.date =
-            // this.newMessage.text,
-            // this.newMessage.status = 'received';
+            this.risposta();
             
+            this.finePagina()
 
-            //     console.log(numero);
+            this.newMessage.text = '';
+        },
+        // timerAnswer(){
+
+        // },
+        
+        risposta(){
+            
+            let orario = dayjs().format('DD/MM/YYYY - HH:mm');
+
             const numero = this.numeroRandom(0, (this.risposte.length - 1))
             setTimeout(() =>
 
@@ -153,7 +164,7 @@ const app = new Vue ({
             this.contatti[this.activeIndex].messages.push(
 
                 {
-                    date: this.newMessage.date,
+                    date: orario,
                     message: this.risposte[numero],
                     status: 'received', 
                 }
@@ -161,32 +172,7 @@ const app = new Vue ({
             )      
             ,2000);
 
-            this.newMessage.text = '';
         },
-        // timerAnswer(){
-
-        // },
-        
-        // risposta(){
-        //     const lunghezza = this.risposte.length;
-        //     setTimeout(function(){
-
-        //         const numero = this.numeroRandom(0, (this.risposte.length - 1));
-
-        //         console.log(numero);
-
-        //         this.contatti[this.activeIndex].messages.push(
-
-        //             {
-        //                 date: this.newMessage.date,
-        //                 message: this.risposte[numero],
-        //                 status: 'received', 
-        //             }
-
-        //         );
-
-        //     },3000);
-        // },
 
         // FUNZIONE PER CREARE NUMERI RANDOM
 
@@ -210,5 +196,15 @@ const app = new Vue ({
                 };
              })
          },
+        //  FUNZIONE PER AVERE LO SCROLL AUTOMATICO A FINE PAGINA
+        finePagina(){
+
+            let w = window.screen.width;
+            let h = window.screen.height;
+            window.scrollTo ( w * h, w * h);
+
+            console.log(w + " - " + h);
+
+        },
     }
 });
