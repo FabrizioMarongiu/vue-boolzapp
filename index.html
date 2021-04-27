@@ -53,7 +53,9 @@
                     <i class="fas fa-search"></i>
                 </div>
                     <input type="text"
-                    placeholder="Cerca o inizia una nuova chat">
+                    v-model="ricerca"
+                    placeholder="Cerca o inizia una nuova chat"
+                    @keyup="search">
             </section>
 
             <!-- SEZIONE RUBRICA (UL) -->
@@ -109,7 +111,7 @@
                             {{element.message}}
                             </span>
                             </div>
-                            <div class="info-mess" v-show="element.status == 'sent'">
+                            <div class="info-mess" v-if="element.status == 'sent'">
                             <span > {{ element.date}}
                             </span>
                             </div>

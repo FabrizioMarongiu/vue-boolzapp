@@ -99,17 +99,19 @@ const app = new Vue ({
             message: '',
             status: 'sent'
         },
+        ricerca: '',
         risposte: [
             'Non mi va.',
             'Va bene!',
             'Non scrivermi più, tra noi è finita',
-            'Ciao',
+            'Ciao!',
             'Ho vohlia di fare un giro',
             'Quanto tempo!!, come stai?',
             'Ti va di fare un giro?',
-            'Aperitivi stasera?'
+            'Aperitivo stasera?'
         ],
     },
+    
     methods: {
         // FUNZIONE PER PERMETTERE DI SELEZIONARE AL CLICK UN CONTATTO
         
@@ -130,11 +132,71 @@ const app = new Vue ({
                     status: this.newMessage.status,
                 }
             );
+            
+            //
+            // this.newMessage.date =
+            // this.newMessage.text,
+            // this.newMessage.status = 'received';
+            
 
+            //     console.log(numero);
+            const numero = this.numeroRandom(0, (this.risposte.length - 1))
+            setTimeout(() =>
 
+            
+
+            this.contatti[this.activeIndex].messages.push(
+
+                {
+                    date: this.newMessage.date,
+                    message: this.risposte[numero],
+                    status: 'received', 
+                }
+
+            )      
+            ,2000);
 
             this.newMessage.text = '';
         },
-       
+        // timerAnswer(){
+
+        // },
+        
+        // risposta(){
+        //     const lunghezza = this.risposte.length;
+        //     setTimeout(function(){
+
+        //         const numero = this.numeroRandom(0, (this.risposte.length - 1));
+
+        //         console.log(numero);
+
+        //         this.contatti[this.activeIndex].messages.push(
+
+        //             {
+        //                 date: this.newMessage.date,
+        //                 message: this.risposte[numero],
+        //                 status: 'received', 
+        //             }
+
+        //         );
+
+        //     },3000);
+        // },
+        numeroRandom(min, max) {
+            
+            return Math.floor( Math.random() * (max - min + 1) ) + min;
+ 
+         },
+         search(){
+             console.log(this.ricerca);
+            //  const parola = this.contatti.name.includes(ricerca);
+
+             const results = this.contatti.filter((element)  => {
+                 
+                return element.name.includes(this.ricerca)
+
+             });
+             console.table(results);
+         },
     }
 });
